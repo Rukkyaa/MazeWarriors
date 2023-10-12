@@ -1,7 +1,9 @@
 function App() {
   return (
     <>
-      <h1>Ta soeur</h1>
+      <h1 className="text-[5rem]">
+        Hello world!
+      </h1>
     </>
   )
 }
