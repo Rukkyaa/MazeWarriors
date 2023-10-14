@@ -7,7 +7,16 @@ export default class User extends BaseModel {
   public id: number
 
   @column()
+  public username: string
+
+  @column()
+  public email: string
+
+  @column({ serializeAs: null })
   public password: string
+
+  @column()
+  public rememberMeToken?: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -17,6 +26,8 @@ export default class User extends BaseModel {
 
   @beforeSave()
   public static async hashPassword(user: User) {
+    console.log('hash', user)
+
     if (user.$dirty.password) {
       user.password = await Hash.make(user.password)
     }
