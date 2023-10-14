@@ -5,6 +5,11 @@ const loginSchema = z.object({
   password: z.string(),
 })
 
+const loginSchemaDefaultValues: LoginSchema = {
+  email: '',
+  password: '',
+}
+
 type LoginSchema = z.infer<typeof loginSchema>
 
-export { loginSchema, type LoginSchema }
+export { loginSchema, loginSchemaDefaultValues, type LoginSchema }
