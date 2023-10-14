@@ -42,6 +42,7 @@ export default function Login() {
             label="Email"
             name="email"
             type="email"
+            placeholder="jean@dupont.fr"
             errorMessage={errors.email?.message}
             register={loginMethods.register}
             onInputChange={(value) => setEmail(value)}
@@ -74,6 +75,7 @@ export default function Login() {
 interface InputWithLabelProps {
   label: string;
   name: "email" | "password";
+  placeholder?: string;
   type: string;
   errorMessage?: string;
   register: UseFormRegister<LoginSchema>;
@@ -83,6 +85,7 @@ interface InputWithLabelProps {
 const InputWithLabel = ({
   label,
   name,
+  placeholder,
   type,
   errorMessage,
   register,
@@ -99,6 +102,7 @@ const InputWithLabel = ({
       <input
         type={type}
         id={name}
+        placeholder={placeholder}
         className="border-[.15rem] text-brown-500 border-brown-500 rounded-xl p-[0.5rem] focus:text-brown-700 focus:border-brown-700 focus:outline-none"
         {...register(name, {})}
         onChange={(e) => onInputChange(e.target.value)}
