@@ -7,6 +7,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import clsx from "clsx";
+import { axiosInstance } from "../../api/axios";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
@@ -27,6 +28,8 @@ export default function Login() {
   const onSubmit: SubmitHandler<LoginSchema> = (data) => {
     console.log(data);
   };
+
+  axiosInstance.get("/").then((res) => console.log(res));
 
   return (
     <div className="flex flex-col mt-[10rem] items-center">
