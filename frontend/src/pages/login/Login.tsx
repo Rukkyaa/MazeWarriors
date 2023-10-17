@@ -1,13 +1,13 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import clsx from "clsx";
+import { useState } from "react";
 import { SubmitHandler, UseFormRegister, useForm } from "react-hook-form";
+import { axiosInstance } from "../../api/axios";
 import {
-  loginSchema,
   LoginSchema,
+  loginSchema,
   loginSchemaDefaultValues,
 } from "./utils/loginSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import clsx from "clsx";
-import { axiosInstance } from "../../api/axios";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
@@ -25,11 +25,9 @@ export default function Login() {
     formState: { errors },
   } = loginMethods;
 
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => {
-    console.log(data);
-    axiosInstance
-      .post("/login", JSON.stringify(data))
-      .then((res) => console.log(res));
+  const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
+    console.log("here", data);
+    await axiosInstance.post("/login", data);
   };
 
   return (

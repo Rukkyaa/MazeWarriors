@@ -1,10 +1,10 @@
-import axios from 'axios'
+import axios from "axios";
 
-const backendUrl = 'http://localhost:3333'
+const backendUrl = "http://localhost:5173/api";
 
 export const axiosInstance = axios.create({
-	baseURL: backendUrl,
-	headers: {
-		'Content-Type': 'application/json',
-	},
-})
+  baseURL: backendUrl,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});

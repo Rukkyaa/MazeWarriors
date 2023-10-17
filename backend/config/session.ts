@@ -5,9 +5,9 @@
  * file.
  */
 
-import Env from '@ioc:Adonis/Core/Env'
-import Application from '@ioc:Adonis/Core/Application'
 import { sessionConfig } from '@adonisjs/session/build/config'
+import Application from '@ioc:Adonis/Core/Application'
+import Env from '@ioc:Adonis/Core/Env'
 
 export default sessionConfig({
   /*
@@ -112,5 +112,5 @@ export default sessionConfig({
   | must be defined inside `config/redis.ts` file as well.
   |
   */
-  redisConnection: 'local',
+  // redisConnection: 'local',
 })
