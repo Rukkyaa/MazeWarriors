@@ -27,9 +27,10 @@ export default function Login() {
 
   const onSubmit: SubmitHandler<LoginSchema> = (data) => {
     console.log(data);
+    axiosInstance
+      .post("/login", JSON.stringify(data))
+      .then((res) => console.log(res));
   };
-
-  axiosInstance.get("/").then((res) => console.log(res));
 
   return (
     <div className="flex flex-col mt-[10rem] items-center">

@@ -15,7 +15,7 @@ export default class AuthController {
     const user = await User.findBy('email', email)
 
     try {
-      console.log(auth.isAuthenticated);
+      console.log(await auth.use('web').user);
       await auth.use('web').verifyCredentials(email, password)
       await auth.login(user)
       const responseHeaders = response.getHeaders()
