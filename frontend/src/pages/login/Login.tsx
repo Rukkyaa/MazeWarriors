@@ -14,7 +14,6 @@ export default function Login() {
   const [password, setPassword] = useState<string>("");
 
   const isFormFilled = email.trim() && password.trim();
-
   const loginMethods = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: loginSchemaDefaultValues,
