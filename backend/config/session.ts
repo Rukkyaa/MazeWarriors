@@ -87,7 +87,7 @@ export default sessionConfig({
   cookie: {
     path: '/',
     httpOnly: true,
-    sameSite: false,
+    sameSite: false
   },
 
   /*
@@ -100,8 +100,8 @@ export default sessionConfig({
   |
   */
   file: {
-    location: Application.tmpPath('sessions'),
-  },
+    location: Application.tmpPath('sessions')
+  }
 
   /*
   |--------------------------------------------------------------------------

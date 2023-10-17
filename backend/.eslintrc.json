@@ -15,5 +15,11 @@
         "react"
     ],
     "rules": {
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-empty-interface": "off"
     }
 }

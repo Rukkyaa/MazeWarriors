@@ -35,6 +35,7 @@
     "quoteProps": "consistent",
     "bracketSpacing": true,
     "arrowParens": "always",
+    "spaceBeforeFunctionParen": true,
     "printWidth": 100
   },
   "devDependencies": {

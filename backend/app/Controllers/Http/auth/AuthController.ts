@@ -3,7 +3,7 @@ import { rules, schema } from '@ioc:Adonis/Core/Validator'
 import User from '../../../Models/User'
 
 export default class AuthController {
-  public async login({ request, response, auth }: HttpContextContract) {
+  public async login({ request, response, auth }: HttpContextContract): Promise<void> {
     const loginSchema = schema.create({
       email: schema.string([rules.trim()]),
       password: schema.string([rules.trim()]),
@@ -14,20 +14,22 @@ export default class AuthController {
     const user = await User.findBy('email', email)
 
     if (!user) {
-      return response.badRequest({ error: 'Invalid credentials' })
+      response.badRequest({ error: 'Invalid credentials' })
+      return
     }
 
     try {
       await auth.use('web').attempt(email, password, true)
     } catch (error) {
-      return response.badRequest({ error: 'Invalid credentials' })
+      response.badRequest({ error: 'Invalid credentials' })
+      return
     }
 
-    return response.ok({ success: 'Logged in' })
+    response.ok({ success: 'Logged in' })
   }
 
-  public async logout({ response, auth }: HttpContextContract) {
+  public async logout({ response, auth }: HttpContextContract): Promise<void> {
     await auth.logout()
-    return response.ok({ success: 'Logged out' })
+    response.ok({ success: 'Logged out' })
   }
 }

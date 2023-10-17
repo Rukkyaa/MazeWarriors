@@ -7,6 +7,9 @@
     "node_modules",
     "build"
   ],
+  "parserOptions": {
+    "project": "./backend/tsconfig.json"
+  },
   "compilerOptions": {
     "outDir": "build",
     "rootDir": "./",

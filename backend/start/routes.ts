@@ -24,5 +24,5 @@ Route.post('/login', 'auth/AuthController.login')
 Route.post('/logout', 'auth/AuthController.logout')
 
 Route.group(() => {
-  Route.get('/', 
+  Route.get('/', 'home/HomeController.index')
 }).middleware('auth')
