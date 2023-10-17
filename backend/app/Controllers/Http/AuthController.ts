@@ -25,4 +25,9 @@ export default class AuthController {
 
     return response.ok({ success: 'Logged in' })
   }
+
+  public async logout({ response, auth }: HttpContextContract) {
+    await auth.logout()
+    return response.ok({ success: 'Logged out' })
+  }
 }
