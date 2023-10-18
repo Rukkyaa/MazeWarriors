@@ -9,7 +9,11 @@ import {
   loginSchemaDefaultValues,
 } from "./utils/loginSchema";
 
-export default function Login() {
+interface LoginProps {
+  refetch: () => void;
+}
+
+export default function Login({ refetch }: LoginProps) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -27,6 +31,7 @@ export default function Login() {
   const onSubmit: SubmitHandler<LoginSchema> = async (data) => {
     console.log("here", data);
     await axiosInstance.post("/login", data);
+    refetch();
   };
 
   return (

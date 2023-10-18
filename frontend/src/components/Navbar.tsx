@@ -1,16 +1,24 @@
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 
-export const Navbar = () => {
+interface NavbarProps {
+  isAuth: boolean | undefined;
+}
+
+export function Navbar({ isAuth }: NavbarProps) {
   return (
     <div className="flex px-[5rem] bg-brown-700">
       <div className="w-full flex justify-around gap-[2rem] py-[1.5rem]">
         <NavbarItem to="/">Home</NavbarItem>
-        <NavbarItem to="/login">Login</NavbarItem>
+        {!isAuth ? (
+          <NavbarItem to="/login">Login</NavbarItem>
+        ) : (
+          <NavbarItem to="/profile">Profile</NavbarItem>
+        )}
       </div>
     </div>
   );
-};
+}
 
 interface NavbarItemProps {
   to: string;

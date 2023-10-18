@@ -32,4 +32,8 @@ export default class AuthController {
     await auth.logout()
     response.ok({ success: 'Logged out' })
   }
+
+  public async loggedIn({ response, auth }: HttpContextContract): Promise<void> {
+    auth.isLoggedIn ? response.ok({ loggedIn: true }) : response.ok({ loggedIn: false })
+  }
 }
