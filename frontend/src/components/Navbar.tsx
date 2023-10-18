@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 
 interface NavbarProps {
   isAuth: boolean | undefined;
+  logout: () => void;
 }
 
-export function Navbar({ isAuth }: NavbarProps) {
+export function Navbar({ isAuth, logout }: NavbarProps) {
   return (
     <div className="flex px-[5rem] bg-brown-700">
       <div className="w-full flex justify-around gap-[2rem] py-[1.5rem]">
@@ -13,7 +14,17 @@ export function Navbar({ isAuth }: NavbarProps) {
         {!isAuth ? (
           <NavbarItem to="/login">Login</NavbarItem>
         ) : (
-          <NavbarItem to="/profile">Profile</NavbarItem>
+          <>
+            <NavbarItem to="/profile">Profile</NavbarItem>
+            <a
+              onClick={() => logout()}
+              className={clsx(
+                "text-[1.5rem] text-brown-900 hover:cursor-pointer hover:text-white"
+              )}
+            >
+              Logout
+            </a>
+          </>
         )}
       </div>
     </div>
