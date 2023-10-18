@@ -1,5 +1,5 @@
 import { axiosInstance } from "../api/axios";
-
+import { queryClient } from "../main";
 interface LogoutProps {
   refetch: () => void;
 }
@@ -13,6 +13,7 @@ function useLogout({ refetch }: LogoutProps): Logout {
     axiosInstance.post("/logout").then(() => {
       refetch();
     });
+    queryClient.clear();
   };
 
   return { logout };
